@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Wiki - {{title}}
+{% endblock %}
+
+{% block body %}
+    {% if entry %}
+    <h1 class="pageTitle">Details for {{title}}</h1>
+        {{entry|safe}}
+    <hr>
+    <a href="{% url 'editentry' id=title %}">Edit {{title}}</a>
+    {% else %}
+    <p>No entry exists for <strong>{{title}}</strong>. Please try another request.</p>
+    {% endif %}
+    
+
+{% endblock %}
+
